@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', 'TaskController@index') -> name('home');
 
-Route::get('/edit' , function(){
-    return view('pages.edit');
-});
+Route::get('/show/{id}' , 'TaskController@show') -> name('show');
+
+Route::get('/edit/{id}' , 'TaskController@edit') -> name('edit');
+
+Route::post('/update/{id}' , 'TaskController@update') -> name('update');
+
+Route::get('/delete/{id}' , 'TaskController@delete') -> name('delete');
+
+Route::get('/create' , 'TaskController@create') -> name('create');
+
+Route::post('/store' , 'TaskController@store') -> name('store');
