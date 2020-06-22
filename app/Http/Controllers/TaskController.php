@@ -20,14 +20,16 @@ class TaskController extends Controller
 
     public function edit($id) {
         $task = Task::findOrFail($id);
-        return view('pages.edit', compact('task'));
+        $employees = Employee::all();
+        return view('pages.edit', compact('task', 'employees'));
     }
 
     public function update(Request $request, $id) {
         $task_validate = $request -> validate([
             'name' => 'required|alpha',
             'description' => 'required',
-            'deadline' => 'required|date'
+            'deadline' => 'required|date',
+            'employee_id' => 'required|integer'
         ]);
 
         Task::whereId($id) -> update($task_validate);
@@ -40,7 +42,8 @@ class TaskController extends Controller
     }
 
     public function create() {
-        return view('pages.create');
+        $employees = Employee::all();
+        return view('pages.create', compact('employees'));
     }
 
     public function store (Request $request) {
@@ -48,6 +51,7 @@ class TaskController extends Controller
             'name' => 'required|alpha',
             'description' => 'required',
             'deadline' => 'required|date',
+            'employee_id' => 'required|integer'
 
         ]);
 
@@ -56,7 +60,7 @@ class TaskController extends Controller
         $task -> name = $validate_task['name'];
         $task -> description = $validate_task['description'];
         $task -> deadline = $validate_task['deadline'];
-        $task -> employee_id = 4;
+        $task -> employee_id = $validate_task['employee_id'];
 
         $task -> save();
 

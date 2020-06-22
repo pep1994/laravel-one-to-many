@@ -20,7 +20,20 @@
              <input type="date" name="deadline" value="{{ $task['deadline'] }}">
         </div>
         <div class="form-group">
+            <label for="employee_id">EMPLOYEE</label>
+            <select name="employee_id">
+                @foreach ($employees as $employee)
+                    <option value="{{ $employee['id'] }}"
+                    @if ($employee['id'] == $task['employee_id'])
+                        selected
+                    @endif
+                    >{{ $employee['firstname'] }} {{ $employee['lastname'] }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
              <input class="btn btn-primary" type="submit" name="submit" value="Update">
+             <a type="button" class="btn btn-warning" href="{{ route('home') }}">Home</a>
         </div>
     </form>
     

@@ -9,7 +9,7 @@
     @endif
     <h1>{{ $task -> name }}</h1>
     Descrizione: <p>{{ $task -> description }}</p>
-    Employee: <small>{{ $task -> employee_id }}</small> <br>
+    Employee: <h6>{{ $task -> employee -> firstname }} {{ $task -> employee -> lastname }}</h6> <br>
     Deadline: {{ $task -> deadline }} <br>
     <a type="button" class="btn btn-success" href="{{ route('edit', $task['id']) }}">Edit</a>
     <a type="button" class="btn btn-danger" href="{{ route('delete', $task['id']) }}">Delete</a>
