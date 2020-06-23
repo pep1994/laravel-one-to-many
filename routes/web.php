@@ -28,3 +28,8 @@ Route::get('/create' , 'TaskController@create') -> name('create');
 Route::post('/store' , 'TaskController@store') -> name('store');
 
 Route::get('/employee' , 'EmployeeController@index') -> name('employee');
+
+Route::get('/employee/edit/{id}' , 'EmployeeController@edit') -> name('edit_employee');
+
+Route::post('/employee/update/{id}' , 'EmployeeController@update') -> name('update_employee');
+
