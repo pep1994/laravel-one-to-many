@@ -2,7 +2,11 @@
 
 @section('content')
 
-    
+    @if ($errors -> any())
+    @foreach ($errors -> all() as $error)
+        <p class="text-danger">{{ $error }}</p>
+    @endforeach
+    @endif
 
     <form action="{{ route('update', $task['id']) }}" method="post">
         @csrf
