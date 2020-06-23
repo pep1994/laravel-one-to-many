@@ -6,7 +6,10 @@
             <strong>{{ session('success') }}</strong>
         </div>  
     @endif
-    <strong><a href="{{ route('create') }}">NEW TASK</a> </strong>
+    <div class="d-flex justify-content-between">
+        <strong><a href="{{ route('create') }}">NEW TASK</a> </strong>
+        <strong><a href="{{ route('employee') }}">ALL EMPLOYEES</a> </strong>
+    </div>
     <ul>
         @foreach ($tasks as $task)
             <li>

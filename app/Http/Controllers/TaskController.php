@@ -66,4 +66,5 @@ class TaskController extends Controller
 
         return redirect() -> route('home') -> withSuccess("Task inserito");
     }
+
 }

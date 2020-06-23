@@ -26,3 +26,5 @@ Route::get('/delete/{id}' , 'TaskController@delete') -> name('delete');
 Route::get('/create' , 'TaskController@create') -> name('create');
 
 Route::post('/store' , 'TaskController@store') -> name('store');
+
+Route::get('/employee' , 'EmployeeController@index') -> name('employee');
