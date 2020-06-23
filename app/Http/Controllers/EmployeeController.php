@@ -41,4 +41,10 @@ class EmployeeController extends Controller
 
         return redirect()->route('home') -> withSuccess("Update Employee riuscito");
     }
+
+    public function delete($id) {
+        Employee::whereId($id) -> delete();
+        return redirect()->route('home') -> withSuccess("Employee eliminato con successo");
+    }
+
 }

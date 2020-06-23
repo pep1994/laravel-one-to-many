@@ -33,3 +33,5 @@ Route::get('/employee/edit/{id}' , 'EmployeeController@edit') -> name('edit_empl
 
 Route::post('/employee/update/{id}' , 'EmployeeController@update') -> name('update_employee');
 
+Route::get('/employee/update/{id}' , 'EmployeeController@delete') -> name('delete_employee');
+

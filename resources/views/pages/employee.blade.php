@@ -17,6 +17,7 @@
                     @endforeach
                 </ul>
                 <a type="button" class="btn btn-success" href="{{ route('edit_employee', $employee['id']) }}">Edit</a>
+                <a type="button" class="btn btn-danger" href="{{ route('delete_employee', $employee['id']) }}">Delete</a>
             </li>
         @endforeach
     </ul>
